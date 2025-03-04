@@ -66,3 +66,77 @@ c
 d <- 0/0
 d ## Puede ser visto tambien como un valor faltante 
 
+
+
+### VECTORES Y LISTAS 
+
+x1 <- c(TRUE, FALSE)
+
+ ## Coherción implicita
+
+x2 <- c(3, TRUE) # Convierte el true en 1
+x2
+
+x3 <- c("TRES", TRUE) # Convierte el TRUE en string
+x3
+
+x4<- c("numeric", 4) # Convierte el 4 en string
+x4
+
+  ## Cohercion explicita
+
+x5 <- 4:12
+class(x5)
+
+# Se realiza la cohercion
+
+x10 <- as.numeric(x5)
+x10
+class(x10) ## Converti en numeric
+
+## Se puede convertir en string
+
+x11 <- as.character(x5)
+x11
+
+## Se convierte en complejo
+
+x12 <- as.complex(x5)
+x12
+
+# Se convierte en booleano
+x13 <- as.logical(x5)
+x13
+
+
+## Cuando falla la cohercion
+
+a <- c("uno", "dos", "tres")
+b <- as.integer(a)
+b
+
+# Listas
+
+list1 <- list(3, "a",TRUE, 3 + 2i)
+
+## Puedo indexar cada elemento con [] para ingresar a cada elemento
+## empezando desde 1 
+
+list1[[1]]
+list1[1]
+
+list2 <- list(c(2,4), 5.6, FALSE, c("b", "d"))
+
+## Para ingresar a un elemento dentro de otro elemento de la lista 
+## es con los dobles corchetes
+
+list2[[1]][1] # Se obtiene 2
+list2[[4]][2] # Se obtiene d
+
+
+
+## Matriz
+### Creando una matriz
+
+a <- matrix(3,5,2)
+a
