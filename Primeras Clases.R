@@ -64,4 +64,5 @@ c
 
 ## NAN
 d <- 0/0
-d ## Puede ser visto tambien como un valor faltante
+d ## Puede ser visto tambien como un valor faltante 
+
