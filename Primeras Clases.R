@@ -138,5 +138,47 @@ list2[[4]][2] # Se obtiene d
 ## Matriz
 ### Creando una matriz
 
-a <- matrix(3,5,2)
-a
+a <- matrix(nrow = 3, ncol =2, byrow = TRUE,  dimnames = list(c("Fila1", "Fila2", "Fila3"), 
+                                                              c("Col1", "Col2")))
+
+a # Crea una matriz vacia
+
+## dimension de una matriz
+
+dim(a)
+
+  ## atributos de una lista
+
+attributes(a)
+
+
+## Llenado de matriz en columnas 
+matriz2 <- matrix(1:6, nrow = 2, ncol = 3)
+matriz2
+
+# Se puede crear una matriz con la funcion dim
+
+y <- 1:10
+dim(y) <- c(2,5) # crea una matriz de dos filas y cinco columnas
+y
+
+
+## Otra manera es concatenando las filas y columnas
+
+a <- 1:4
+b <- 10:13
+
+## unir columnas
+x <- cbind(a,b)
+x
+
+## unir filas
+
+y <- rbind(a,b) 
+y
+
+
+## FACTORES
+
+ w <- factor(c("Si","No", "Si","Si","No"))
+w 
