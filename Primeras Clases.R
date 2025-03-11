@@ -180,5 +180,118 @@ y
 
 ## FACTORES
 
- w <- factor(c("Si","No", "Si","Si","No"))
+w <- factor(c("Si","No", "Si","Si","No"))
 w 
+
+## frecuencia de los niveles
+
+table(w)
+
+
+## Ordenamos los niveles del factor
+
+w2 <- factor(c("Si","No","No","Si","Si"),levels = c("Si","No"))
+w2
+
+
+## VALORES MISING O FALTANTES (NAN y NA)
+
+x <- c(1,6,NA,7)
+x
+is.na(x)
+is.nan(x) # No hay ningun NAN
+## Por que? -- esto se debe a que un NAN puede ser un NA
+## pero un NA no necesariamente es un NAN
+
+y <- c("Rey","corona", NaN)
+y
+
+
+is.nan(y) # Me aparece falso por que ha toma la clase string del vector
+
+## El nan son valores indeterminados matematicamente
+
+w <- c(4,6,NaN)
+w
+
+is.nan(w)
+is.na(w) # Me arroja tambien un true por que los NAN son considerados NA
+
+z <- c(NA,5, 6, NaN)
+
+is.na(z) # Habra dos na
+is.nan(z) # solo hay un nan
+
+
+## DATA FRAME
+
+# creamos un data frame
+
+a1 <- data.frame(edad = c(14,15,16), nombre = c("Miguel","Ana","Luis"))
+a1
+
+nrow(a1)
+ncol(a1)
+
+
+# Convertir un dataframe a matriz
+
+a2 <- data.frame(edad = c(2,5,7), sueldo = c(1200,1100,2000))
+a2
+
+a22 <- data.matrix(a2)
+a22
+
+## NOMBRES DE ATRIBUTOS
+
+### Para los vectores
+w1 <- c(1,4,5,6)
+
+names(w1) <- c("Uno","Dos","Tres")
+
+w1
+
+# Para el caso de las listas
+
+w2 <- list(c = 5, d = 4 , e = 2)
+w2
+
+# Para el caso de Matrices
+
+w3 <- matrix(c(2,45,6,7),ncol = 2, nrow = 2)
+w3
+dimnames(w3) <- list(c("Año", "Edad"), c("tB","xe"))
+w3
+
+## LECTURA DE DATOS TABULARES
+
+
+x <- list(a = 1, b = 2, c = c(3, 4, 5))
+
+# Guardar el objeto en un archivo de texto
+dput(x, file = "objeto.R")
+
+# Leer el objeto desde el archivo
+nuevo_x <- dget("objeto.R")
+x
+
+### Lectura de grandes datos
+
+  ## Se puede limitar las filas que se van a leer con nrows
+ data1 <- read.csv("C:/Users/USER/OneDrive/Desktop/R---Programing/Ecommerce_Delivery_Analytics_New.csv"
+                   , sep =",", nrows = 100)
+ data1
+
+  ## Para saber de que clases son las columnas de un objeto en R
+ clases <- sapply(data1,class)
+ 
+ clases
+ 
+ 
+ ## Simplificando
+ 
+ data2 <- read.csv("C:/Users/USER/OneDrive/Desktop/R---Programing/Ecommerce_Delivery_Analytics_New.csv",
+                   sep = ",", colClasses = clases)
+data2 
+
+
