@@ -109,3 +109,44 @@ for (i in 1:100){
   
 }
 
+
+## PRIMERAS FUNCIONES 
+
+### sumatoria
+
+f_suma <- function(w, y){
+  w + y
+}
+
+f_suma(5,6)
+
+
+
+## Obtengo de un vector los valores mayores al que indico
+
+f_numerosmayores <- function(x,n){
+  num <- 1:x
+  cond <- num > n
+  num[cond]
+  
+}
+
+f_numerosmayores(20,12)
+f_numerosmayores(59, 20)
+
+
+## Function para hallar el promedio
+w <- data.frame(edad = c(15,12,19,29), peso = c(12.4,14.5,43.2,22.1),
+                altura = c(1.21,4.22,1.45,1.44))
+
+f_promedio <- function(base){
+  nc <- ncol(base)
+  v_means <- numeric(nc)
+  for (i in 1:nc) {
+    v_means[i] <- mean(base[ ,i])
+  }
+  return(v_means)
+  
+}
+
+f_promedio(w)
