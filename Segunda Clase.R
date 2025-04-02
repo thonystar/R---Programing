@@ -150,3 +150,46 @@ f_promedio <- function(base){
 }
 
 f_promedio(w)
+
+### Quitar los NA de una lista
+a <- list(as = c(1,23,NA), nom = c(NA, "Mex","Dig"),
+          cat = c(NA,TRUE,NA))
+a
+f_nombre <- function(z){
+  col <- length(z)
+  n_list <- list()
+  for (i in 1:col) {
+    n_list[[i]] <- z[[i]][!is.na(z[[i]])]
+  }
+  return(n_list)
+}
+f_nombre(a)
+## Evaluación Perezosa 
+
+f <- function(a,b){
+  print(a)
+  print(b)
+  
+}
+f(22,11)
+
+## ----------------------------------------------##
+
+##--- ARGUMENTO ESPECIAL EN R --
+
+# Querer extender la funcion plot
+
+nuevo_plot <- function(x, y, type = 'l', ...){
+
+  plot(x, y, type = type, ...)
+}  
+
+## Funciones que empiezan con el primer argumento ...
+#### paste() y cat()
+
+## Argumentos con valores prestablecidos en funciones
+args(lm)
+
+
+
+
