@@ -191,5 +191,44 @@ nuevo_plot <- function(x, y, type = 'l', ...){
 args(lm)
 
 
+## Busqueda de simbolos para darle un valor 
+
+## orden 
+search()
+ 
+
+## FUNCIONES DENTRO DE OTRAS FUNCIONES
+
+m <- function(n){
+   pow <- function(x){
+     x**n
+     
+   }
+   pow
+ }
+## almaceno esta funcion
+cubo <- m(3)
+cuadrado <- m(2)
+
+## Ejecuto para realizar un cubo o un al cuadrado
+cubo(2)
+cuadrado(2)
 
 
+
+## Ejemplo 2
+
+y <- 10
+
+uno <- function(x){
+  y <- 2
+  y ** 2 + g(x)
+  
+}
+
+
+g <- function(x){
+  
+  x*y
+}
+uno(3)
