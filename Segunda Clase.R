@@ -237,4 +237,58 @@ uno(3)
 #----------------------------------------------
 #        Trabajando con Fechas
 #---------------------------------------------
+fecha <- "1970-01-01"
+fecha2 <- as.Date(fecha)
+fecha2
+class(fecha2)
+
+## sacas la clase del objeto
+unclass(fecha2) # -- como para R es la primera fecha lo esta guardando como 0
+
+
+## Caso 2
+unclass(as.Date("1970-01-02")) # -- arroja el valor de 1
+
+
+## Función weekdays
+# Devuelve el día de la semana del objeto date
+dia_semana <- weekdays(fecha2)
+dia_semana
+
+## Función Moth
+mes <- months(fecha2)
+mes
+
+trimestre <- quarters(fecha2)
+trimestre
+
+hora_Actual <- Sys.time()
+hora_Actual
+
+f_POSIXlt <- as.POSIXlt(hora_Actual)
+f_POSIXlt
+
+# POSIXlt almacena una lista con la hora o fecha en ese formato
+names(unclass(f_POSIXlt))
+
+## Extraigo las horas
+f_POSIXlt$hour
+
+
+## Tambien se puede pasar a formato POSIXct
+
+unclass(hora_Actual) # - se representa por un numero con varios decimales
+
+## Este tipo de objetos ya estan en el formato POSIXct
+
+
+## Funcion strptime
+
+fecha_escrita <- "Enero 10, 2024 08:39"
+conversion <- strptime(fecha_escrita, "%B %d, %Y %H:%M")
+conversion
+
+
+class(conversion) #- es de la clase POSIXlt
+
 
