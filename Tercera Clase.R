@@ -76,3 +76,46 @@ class(y)
 w <- sapply(list3, 
        function(ele) ele[,1])
 class(w)
+
+
+### Funcion Apply
+
+z <- matrix(rnorm(200), 20,10)
+z
+
+## Calculo el promedio de las columnas de la matriz
+apply(z, 2, mean)
+
+## Calculo la suma de las filas de la matriz
+apply(z,1,sum)
+
+
+## Para calcular la suma de los valores de una columnas o 
+## el promedio existen funciones especializadas
+
+## rowSums
+## rowMeans
+## colSums
+## col Means
+
+
+## Calcular cuantiles
+
+apply(z, 1, quantile, probs = c(0.25,0.75))
+
+
+
+## Array de 3 dimensiones
+
+w <- array(rnorm(2 * 2 * 10), c(2,2,10)) ## Divide los 10 numeros aleatorios
+# en un array de 3 dimensiones, 2 filas, 2 columnas y 10 capas
+
+# Se quiere calcular el promedio de los matrices
+
+apply(w, c(1,2), mean)
+w
+
+rowMeans(w, dims = 2)
+
+
+
