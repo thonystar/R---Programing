@@ -118,4 +118,47 @@ w
 rowMeans(w, dims = 2)
 
 
+### MAPPLY
+
+## Para un vector
+a <- rep(1:4,4:1)
+a
+## Pero quiero obtener una lista donde tenga una repetcion de cuatro veces uno
+## y asi sucesivamente
+mapply(rep,1:4,4:1)
+
+
+## Para una funcion simple
+funcn <- function(n, media, desviacion){
+    rnorm(n, media, desviacion)
+}
+
+## Obtengo 5 numeros aleatorios con media 1 y desviacion 2
+funcn(5,1,2)
+
+## Si lo uso para un vector 
+funcn(1:5, 1:5, 2)
+
+# No obtengo lo que deseo por que quiero un numero con media 1 y desviacion 2
+## Dos numeros con media 2 y sdt 2 y asi sucesivamente
+
+mapply(funcn, 1:5, 1:5, 2)
+
+
+## TAPPLY
+x <- c(rnorm(10), runif(10), rnorm(10,1))
+factor <- gl(3,10) ## Crea un factor con 3 niveles y que cada nivel tenga
+## 10 elementos
+
+## Se calcula la media de los 3 niveles
+tapply(x, factor, mean)
+
+
+## Si no simplifico el resultado me da una lista
+tapply(x, factor, mean, simplify = FALSE)
+
+
+### Tambien se pueden realizar calculos mas complejos
+
+tapply(x, factor, range)
 
