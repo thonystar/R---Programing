@@ -162,3 +162,51 @@ tapply(x, factor, mean, simplify = FALSE)
 
 tapply(x, factor, range)
 
+
+
+###########################################
+### FUNCIONES DE BUCLE - DIVIDIR ##########
+###########################################
+u <- c(rnorm(20), runif(20), rnorm(20,0))
+factor <- gl(6,10)
+
+split(u,factor)
+
+## Realizo el promedio para los 6 grupos
+lapply(split(u,factor), mean)
+
+
+## Puede dividir objetos mas complicados
+library(datasets)
+head(airquality)
+
+s1 <- split(airquality, airquality$Month)
+s1
+
+sapply(s1, function(x) apply(x[, c("Ozone","Solar.R","Wind","Temp")],2
+                             ,mean, na.rm = T)
+       )
+
+sapply(s1, function(x) colMeans(x[, c("Ozone","Solar.R","Wind","Temp")],
+                                  na.rm = T))
+       
+
+
+###Separacion a mas de un nivel
+
+x <- rnorm(10)
+f1 <- gl(2,5)
+f2 <- gl(5,2)
+
+## Combino ambas variables factor
+interaction(f1,f2)
+
+str(split(x,list(f1,f2)))
+
+## Realiza todas las combinaciones de ambos factor sin 
+## necesidad de poner interaction sino simplemente
+## tomar una lista de los factor
+
+str(split(x, list(f1,f2),drop = T))
+
+## Solo me da los valores que no tienen valores nulos
