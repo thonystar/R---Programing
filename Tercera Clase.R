@@ -210,3 +210,66 @@ str(split(x,list(f1,f2)))
 str(split(x, list(f1,f2),drop = T))
 
 ## Solo me da los valores que no tienen valores nulos
+
+
+
+##################################################
+######## HERRAMIENTAS DE DEPURACION #############
+#################################################
+
+a <- log(-1) # aviso simple
+
+
+
+printmensaje <- function(x){
+    if (x < 0) {
+        print("El numero es menor a 0")
+        
+    } else{
+        print("El numero es mayor a 0")
+    }
+    invisible(x)
+    
+}
+
+printmensaje(3)
+printmensaje(NA) ## Sale un error 
+
+
+## Puedo indicar que si existe algun valor que no este dentro de las 
+## condiciones me indica un mensaje en vez que salga el error
+
+mensaje2 <- function(x){
+    if (is.na(x)){
+        print("El valor no es el correcto")
+    }
+    else if (x > 0){
+        print("El valor es mayor a 0")
+    }
+    else {
+        print("El valor es menor a 0")
+    }
+    invisible(x)
+}
+
+mensaje2(a)
+
+
+
+##TRACEBACK
+mean(h)
+traceback()
+#Con traceback me informa que funciones me estan saliendo error 
+
+lm(y ~ x)
+traceback()
+
+## Funcion debug
+debug(lm(y ~ x))
+
+
+## Puedes configurar la function recover para depurar errores
+
+# Se utiliza la function options
+options(error = recover)
+
